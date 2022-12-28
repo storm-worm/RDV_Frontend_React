@@ -1,22 +1,8 @@
-import React from 'react';
-import './App.css';
-import NavBar from './components/NavBar';
-import  {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Home from './components/pages/Home';
+import "./App.css"
+import Pages from "./components/Pages"
 
 function App() {
-  return (
-    <>
-    <Router>
-    <NavBar/>
-    <Routes>
-      <Route path='/' exact component = {Home}></Route>
-    </Routes>
-    </Router>
-    
-  </>
-    
-  );
+  return <Pages />
 }
 
-export default App;
+export default App
