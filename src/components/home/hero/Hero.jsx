@@ -1,7 +1,6 @@
 import React from "react"
-import Heading from "./Heading"
+import Heading from "../../common/Heading"
 import "./hero.css"
-
 
 const Hero = () => {
   return (
@@ -12,13 +11,12 @@ const Hero = () => {
 
           <form className='flex'>
             <div className='box'>
+              <span>City</span>
+              <input type='text'  />
             </div>
             <div className='box'>
               <span>Technicien</span>
               <input type='text'  />
-            </div>
-            <div className='box'>
-              <h4>Advance Filter</h4>
             </div>
             <button className='btn1'>
               <i className='fa fa-search'></i>

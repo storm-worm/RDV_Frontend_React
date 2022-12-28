@@ -1,13 +1,13 @@
 import React from "react"
-import Header from "./Header"
+import Header from "../common/header/Header"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./Home"
-import Footer from "./Footer"
-//import About from ".About"
-//import Pricing from ".Pricing"
+import Home from "../home/Home"
+import Footer from "../common/footer/Footer"
+//import About from "../about/About"
+//import Pricing from "../pricing/Pricing"
 //import Blog from "../blog/Blog"
 //import Services from "../services/Services"
-//import Contact from "../contact/Contact"
+import Contact from "../contact/Contact"
 
 const Pages = () => {
   return (
@@ -16,6 +16,7 @@ const Pages = () => {
         <Header />
         <Routes>
           <Route exact path='/' component={Home} />
+          <Route exact path='/contact' component={Contact} />
         </Routes>
         <Footer />
       </Router>
