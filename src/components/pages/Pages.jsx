@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "../common/header/Header"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "../home/Home"
 import Footer from "../common/footer/Footer"
 //import About from "../about/About"
@@ -14,11 +14,11 @@ const Pages = () => {
     <>
       <Router>
         <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/rdv' component={Rdv} />
-          <Route exact path='/contact' component={Contact} />
-        </Switch>
+        <Routes>
+          <Route exact path='/' element={<Home/>} />
+          <Route exact path='/rdv' element={<Rdv/>} />
+          <Route exact path='/contact' element={<Contact/>} />
+        </Routes>
         <Footer />
       </Router>
     </>
