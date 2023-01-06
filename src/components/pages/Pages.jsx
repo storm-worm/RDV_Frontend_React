@@ -11,10 +11,7 @@ import Contact from "../contact/Contact"
 import Login from "../auth/Login";
 
 const Pages = () => {
-  const [token, setToken] = useState();
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+
   return (
     <>
       <Router>
