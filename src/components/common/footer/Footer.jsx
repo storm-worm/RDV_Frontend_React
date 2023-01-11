@@ -1,6 +1,7 @@
 import React from "react"
 import { footer } from "../../data/Data"
 import "./footer.css"
+import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
@@ -11,7 +12,12 @@ const Footer = () => {
             <div className='text'>
               <h1>Do You Have Questions ?</h1>
             </div>
-            <button className='btn5'>Contact Us </button>
+            <button className='btn5'>
+            <Link className="nav-link" to="/contact">
+                 Contact Us
+                 </Link>
+             </button>
+            
           </div>
         </div>
       </section>
