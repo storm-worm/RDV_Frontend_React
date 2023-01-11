@@ -3,12 +3,11 @@ import Header from "../common/header/Header"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "../home/Home"
 import Footer from "../common/footer/Footer"
-//import About from "../about/About"
-//import Pricing from "../pricing/Pricing"
-//import Blog from "../blog/Blog"
 import Rdv from "../rdv/Rdv"
 import Contact from "../contact/Contact"
-import Login from "../auth/Login";
+import Login from "../auth/login"
+import Register from "../auth/register"
+
 
 const Pages = () => {
 
@@ -20,6 +19,8 @@ const Pages = () => {
           <Route exact path='/' element={<Home/>} />
           <Route exact path='/rdv' element={<Rdv/>} />
           <Route exact path='/contact' element={<Contact/>} />
+          <Route exact path='/login' element={<Login/>} />
+          <Route exact path='/register' element={<Register/>} />
         </Routes>
         <Footer />
       </Router>

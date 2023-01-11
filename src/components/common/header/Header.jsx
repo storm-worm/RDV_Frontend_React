@@ -24,10 +24,16 @@ const Header = () => {
           </div>
           <div className='button flex'>
           <button className='btn1'>
-              <i className='fa fa-sign-in'></i> Sign In
+              <i className='fa fa-sign-in'></i>
+              <Link className="nav-link" to="/login">
+                 Sign In
+                 </Link>
             </button>
             <button className='btn1'>
-              <i className='fa fa-user-plus'></i> Sign Up
+              <i className='fa fa-user-plus'></i> 
+              <Link className="nav-link" to="/register">
+                 Sign Up
+                 </Link>
             </button>
           </div>
 
