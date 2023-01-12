@@ -7,6 +7,8 @@ header {
   top: 0;
   z-index: 99999;
 }
+.btn.btn-rounded:hover { background-color: #45cd7e }
+
 header img {
   width: 170px;
 }
@@ -18,6 +20,7 @@ header a {
 header a:hover {
   color: #27ae60;
 }
+
 header span {
   width: auto;
   padding: 0px 6px;
@@ -44,7 +47,7 @@ header .toggle {
   header .button {
     display: none;
   }
-  header .nav .flex {
+  header .nav1 .flex {
     display: none;
   }
   header .toggle {
