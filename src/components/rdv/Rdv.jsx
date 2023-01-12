@@ -3,18 +3,13 @@ import React from "react"
 import Back from "../common/Back"
 //import Heading from "../common/Heading"
 import "../home/hero/hero.css"
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import Search from "../search/Search"
+//import {Routes, Route, useNavigate} from 'react-router-dom';
+// import Search from "../search/Search"
+import RecentCard from "../home/recent/RecentCard"
+import "../home/recent/recent.css"
+//import Heading from "../common/Heading"
 
-
-
-const Rdv = () => {
-const navigate = useNavigate();
-
-const navigateToSearch = () => {
-    // 👇️ navigate to /contacts
-    navigate('/search');
-  };
+export default function Rdv() {
   return (
     <>
     
@@ -30,17 +25,20 @@ const navigateToSearch = () => {
               <span>Technicien</span>
               <input type='text'  />
             </div>
-            <button className='btn1' onClick={navigateToSearch}>
+            <button className='btn1'>
               <i className='fa fa-search'></i>
             </button>
           </form>
-          <Routes>
-          <Route path="/search" element={<Search/>} />
-        </Routes>
+          {/* <div className='container'>
+          <RecentCard />
+        </div> */}
+        </div>
+      </section>
+       <section className='recent padding'>
+        <div className='container'>
+          <RecentCard />
         </div>
       </section>
     </>
   )
 }
-
-export default Rdv
