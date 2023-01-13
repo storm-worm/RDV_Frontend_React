@@ -3,11 +3,16 @@ import { useState } from "react";
 import AuthUser from './AuthUser';
 
 export default function Login(){
-    const { http } = AuthUser();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { http, setToken } = AuthUser();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
     const submitForm = () => {
-        console.log(email, password);
+        // console.log(email, password);
+        http.post('/login', {email:email, password:password}).then((res) => {
+            // console.log(res.data);
+            setToken(res.data.user, res.data.access_token);
+        });
     }
     return(
 
@@ -18,15 +23,15 @@ export default function Login(){
                    {/* <div className='alert alert-danger mt-3'></div> */}
                     <div className="form-group mb-3">
                         <label htmlFor="email" className='fs-6'>Adresse email </label>
-                        <input type="email" className="form-control" id="email" placeholder="Entrez votre email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="email" className="form-control" id="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="form-group mb-3">
-                        <label htmlFor="password" className='fs-6'>Mot de passe </label>
-                        <input type="password" className="form-control" id="password" placeholder="Entrez votre mot de passe" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <label htmlFor="password" className='fs-6'>Password </label>
+                        <input type="password" className="form-control" id="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    <a href="/register" className="link-secondary link-primary:focus">Pas encore inscrit ?</a>
-                    <button type="submit" className="btn btn-success mt-4" onClick={submitForm}>Se connecter</button>
+                    <a href="/register" className="link-secondary link-primary:focus">Forget Password ?</a>
+                    <button type="submit" className="btn btn-success mt-4" onClick={submitForm}>Sign In</button>
                 </div>
             </div>
         </div>

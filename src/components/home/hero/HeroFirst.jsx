@@ -1,13 +1,22 @@
 import React from "react"
 import Heading2 from "../../common/Heading2"
+import AuthUser from '../../auth/AuthUser'
 import "./hero.css"
 
+
 const Herofirst = () => {
+
+  const {getUser, token,logout} = AuthUser();
+  const logoutUser = () => {
+    if(token != undefined){
+      logout();
+    }
+  }
   return (
     <>
       <section className='hero'>
         <div className='container'>
-          <Heading2 title='Welcome UserName, Search Your Appointment ' subtitle='Find appointment located in your local city.' />
+          <Heading2 title={`Welcome ${getUser().name}, Search Your Appointment`} subtitle='Find appointment located in your local city.' />
 
           <form className='flex'>
             <div className='box'>
@@ -26,6 +35,6 @@ const Herofirst = () => {
       </section>
     </>
   )
-}
+};
 
 export default Herofirst
