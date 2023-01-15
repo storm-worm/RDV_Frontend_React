@@ -84,7 +84,7 @@ export const list = [
   {
     id: 5,
     cover: "../images/list/p-5.png",
-    name: "Docteur Ahmed Benzarouk",
+    name: "Docteur Ahmed Benzar",
     location: "Marrakesh",
     //category: "For Rent",
     price: "Take Appointment",
