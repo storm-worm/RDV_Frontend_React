@@ -12,7 +12,7 @@ export default function Register(){
     const submitForm = () => {
         http.post('/register', {email:email, password:password, name:username}).then((res) => {
             console.log(res.data);
-            setToken(res.data.user, res.data.access_token);
+            // setToken(res.data.user, res.data.access_token);
             navigate("/login");
         });
     }

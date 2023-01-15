@@ -6,7 +6,7 @@ export default function Login(){
     const { http, setToken, handleError , error, setError} = AuthUser();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    
+    const [loggedIn, setLoggedIn] = useState(false);
     
 
     const submitForm = () => {
@@ -15,6 +15,8 @@ export default function Login(){
         http.post('/login', {email:email, password:password}).then((res) => {
             // console.log(res.data);
             setToken(res.data.user, res.data.access_token);
+            sessionStorage.setItem('loggedIn', true);
+
         }).catch((err) => {
             handleError(err);
         });
@@ -48,4 +50,5 @@ export default function Login(){
         
     )
 }
+
         

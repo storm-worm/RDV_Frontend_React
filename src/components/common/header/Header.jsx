@@ -1,24 +1,28 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./header.css"
 import { nav } from "../../data/Data"
 import { Link } from "react-router-dom"
 import AuthUser from "../../auth/AuthUser"
 
-const Header = () => {
+const Header = (props) => {
   const [navList, setNavList] = useState(false)
   const { token, logout, profile, http } = AuthUser();
   const [tkn, setTkn] = useState(token);
+  
+
   const logoutUser = () => {
-    if(token !== undefined){
+    if(token !== null){
       logout();
       http.post('/logout', {token: token});
     }
   }
   const profileUser = () => {
-    if(token !== undefined){
+    if(token !== null){
       console.log("profile", profile.name, profile.email); }
   }
- if(token == null){
+
+
+ if(token === null){
   return (
     <>
      <header>
@@ -60,7 +64,7 @@ const Header = () => {
        </div>
      </header>
    </>
- )}else{
+ )}else if(token !== null ){
   return (
     <>
 <header>

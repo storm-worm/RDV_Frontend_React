@@ -33,9 +33,11 @@ export default function AuthUser() {
     }
 
     const logout = () => {
-        sessionStorage.clear();
+        sessionStorage.setItem("user", null);
+        sessionStorage.setItem("token", null);
         setToken(null);
         setUser(null);
+        sessionStorage.setItem('loggedIn', false);
         navigate("/");
     }
 
