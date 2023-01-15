@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHistory } from "react-router-dom";
 import { useState } from "react";
 
 export default function AuthUser() {
 
     const navigate = useNavigate();
+
+    const [error, setError] = useState(null);
 
     const getToken = () => {
         const tokenString = sessionStorage.getItem("token");
@@ -26,21 +28,34 @@ export default function AuthUser() {
         sessionStorage.setItem("token", JSON.stringify(token));
         setUser(user);
         setToken(token);
-        navigate("/homeuser");
+        navigate("/");
 
     }
 
     const logout = () => {
         sessionStorage.clear();
-        navigate("/login");
+        setToken(null);
+        setUser(null);
+        navigate("/");
     }
+
+    const handleError = (error) => {
+        if (error.response.status === 401) {
+          setError( 'Authentication failed');
+        } else {
+          setError( 'An error occurred' );
+        }
+      };
 
     const http = axios.create({
         baseURL: "http://127.0.0.1:8000/api/",
         headers: {
             "Content-type": "application/json",
+            "Authorization": "Bearer " + getToken()
         },
     });
+
+
 
     return {
         setToken: saveToken,
@@ -48,7 +63,11 @@ export default function AuthUser() {
         token,
         http,
         getToken,
-        getUser
+        getUser,
+        logout, 
+        profile: getUser(),
+        handleError,
+        error, setError
     }
 
 }

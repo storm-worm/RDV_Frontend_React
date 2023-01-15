@@ -6,12 +6,13 @@ import "./hero.css"
 
 const Herofirst = () => {
 
-  const {getUser, token,logout} = AuthUser();
-  const logoutUser = () => {
-    if(token != undefined){
-      logout();
-    }
-  }
+  const {getUser, token,logout, http} = AuthUser();
+  // const logoutUser = () => {
+  //   if(token != undefined){
+  //     logout();
+  //     http.post('/logout')
+  //   }
+  // }
   return (
     <>
       <section className='hero'>
