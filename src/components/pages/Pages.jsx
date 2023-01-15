@@ -7,8 +7,6 @@ import Rdv from "../rdv/Rdv"
 import Contact from "../contact/Contact"
 import Login from "../auth/login"
 import Register from "../auth/register"
-import HomeUser from "../auth/homeuser"
-import AuthUser from '../auth/AuthUser';
 
 
 const Pages = () => {
@@ -63,7 +61,7 @@ const Pages = () => {
           <Route exact path='/contact' element={<Contact/>} />
           <Route exact path='/login' element={<Login/>} />
           <Route exact path='/register' element={<Register/>} />
-          <Route exact path='/homeuser' element={<HomeUser/>} />
+          {/* <Route exact path='/' element={<HomeUser/>} /> */}
         </Routes>
         <Footer />
       </Router>

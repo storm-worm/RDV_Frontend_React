@@ -62,21 +62,21 @@ const Header = () => {
    </>
  )}else{
   return (
-     <>
-      <header>
-        <div className='container flex mt-2'>
-          <div className='logo'>
-            <img src='./images/logoapp.png' alt='' />
-          </div>
-          <div className='nav1'>
-            <ul className={navList ? "small" : "flex"}>
-              {nav.map((list, index) => (
-                <li key={index}>
-                  <Link className="text-decoration-none p-3 btn btn-rounded" to={list.path}>{list.text}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <>
+<header>
+       <div className='container flex mt-2'>
+         <div className='logo'>
+           <img src='./images/logoapp.png' alt='' />
+         </div>
+         <div className='nav1'>
+           <ul className={navList ? "small" : "flex"}>
+             {nav.map((list, index) => (
+               <li key={index}>
+                 <Link className="text-decoration-none p-3 btn btn-rounded" to={list.path}>{list.text}</Link>
+               </li>
+             ))}
+           </ul>
+         </div>
           <div className='button flex'>
             <Link className="text-white" onClick={profileUser}>
               <button className='btn btn-success p-3 px-4'>
@@ -89,14 +89,7 @@ const Header = () => {
               <button className='btn btn-danger p-3 px-4'>
               <i className='fa fa-sign-out'></i>Logout
               </button>
-          </Link>
-            
-            {/* <button className='btn btn-success p-3'>
-              <i className='fa fa-user-plus'></i> 
-              <Link className="text-white" to="/register">
-                 Sign Up
-                 </Link>
-            </button> */}
+            </Link>
           </div>
 
           {/* <div className='toggle'>
