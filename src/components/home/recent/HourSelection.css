@@ -1,0 +1,28 @@
+.center {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  table {
+    margin: 0 auto; /* Center the table on the page */
+    border-collapse: collapse; /* Remove the space between table cells */
+    width: 80%; /* Set the width of the table */
+  }
+
+  th, td {
+    border: 1px solid #ddd; /* Add a border to the table cells */
+    padding: 8px; /* Add padding to the table cells */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Add a background color to the table header cells */
+  }
+  
+  .selected {
+    background-color: blue;
+    color: white;
+  }
+
+ 
+

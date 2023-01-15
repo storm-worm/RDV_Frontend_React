@@ -8,6 +8,11 @@ import Contact from "../contact/Contact"
 import Login from "../auth/login"
 import Register from "../auth/register"
 import HomeUser from "../auth/homeuser"
+import HourSelection from '../home/recent/HourSelection';
+import AppointmentConfirmation from '../home/recent/AppointmentConfirmation';
+// import DatePickerPage from '../home/recent/DatePickerPage';
+// import RecentCard from '../home/recent/RecentCard';
+
 
 
 const Pages = () => {
@@ -23,6 +28,10 @@ const Pages = () => {
           <Route exact path='/login' element={<Login/>} />
           <Route exact path='/register' element={<Register/>} />
           <Route exact path='/homeuser' element={<HomeUser/>} />
+          <Route exact path='/select-hour' element={<HourSelection/>} />
+          <Route exact path='/appointment-confirmation' element={<AppointmentConfirmation/>} />
+          {/* <Route exact path='/recentcard' element={<RecentCard/>} />
+          <Route exact path='/datepickerpage' element={<DatePickerPage/>} /> */}
         </Routes>
         <Footer />
       </Router>

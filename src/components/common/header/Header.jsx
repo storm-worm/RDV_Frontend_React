@@ -17,7 +17,7 @@ const Header = () => {
             <ul className={navList ? "small" : "flex"}>
               {nav.map((list, index) => (
                 <li key={index}>
-                  <Link className="text-decoration-none text-white p-3 btn btn-rounded " to={list.path}>{list.text}</Link>
+                  <Link className="text-decoration-none p-3 btn btn-rounded " to={list.path}>{list.text}</Link>
                 </li>
               ))}
             </ul>
@@ -33,13 +33,6 @@ const Header = () => {
               <i className='fa fa-user-plus'></i>Sign Up
               </button>
           </Link>
-            
-            {/* <button className='btn btn-success p-3'>
-              <i className='fa fa-user-plus'></i> 
-              <Link className="text-white" to="/register">
-                 Sign Up
-                 </Link>
-            </button> */}
           </div>
           <div className='toggle'>
             <button onClick={() => setNavList(!navList)}>{navList ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}</button>
