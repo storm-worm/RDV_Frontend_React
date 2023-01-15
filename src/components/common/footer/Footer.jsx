@@ -13,7 +13,7 @@ const Footer = () => {
               <h1>Do You Have Questions ?</h1>
             </div>
             <button className='btn5'>
-            <Link className="nav-link" to="/contact">
+            <Link to="/contact">
                  Contact Us
                  </Link>
              </button>

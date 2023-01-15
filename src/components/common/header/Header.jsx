@@ -17,7 +17,7 @@ const Header = () => {
             <ul className={navList ? "small" : "flex"}>
               {nav.map((list, index) => (
                 <li key={index}>
-                  <Link className="text-decoration-none text-white p-3 btn btn-rounded " to={list.path}>{list.text}</Link>
+                  <Link className="text-decoration-none p-3 btn btn-rounded " to={list.path}>{list.text}</Link>
                 </li>
               ))}
             </ul>

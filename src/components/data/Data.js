@@ -9,10 +9,6 @@ export const nav = [
     path: "/rdv",
   },
   {
-    text: "pricing",
-    path: "/pricing",
-  },
-  {
     text: "contact",
     path: "/contact",
   },

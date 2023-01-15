@@ -3,6 +3,7 @@ import { list } from "../../data/Data"
 //import { Link } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import 'font-awesome/css/font-awesome.min.css'
 
 
 const RecentCard = () => {
@@ -13,7 +14,13 @@ const RecentCard = () => {
     setSelectedDate(date);
     localStorage.setItem('selectedDate', date);
     window.location.href = '/select-hour';
-}
+  }
+  const [isOpen, setIsOpen] = useState(false);
+  const [isIcon, setIsIcon] = useState(false);
+  const [state, setState] = useState({});
+
+
+
 
 
 
@@ -46,17 +53,29 @@ const RecentCard = () => {
                     {showCalendar ? 'Hide Calendar' : 'Take appointment'}
                   </button> */}
                   <button className='btn2' onClick={() => {
-                    if (isSelectedCard) setSelectedCard(null)
-                    else setSelectedCard(index)
+                    setState({ ...state, [index]: { isIcon: !state[index]?.isIcon } });
                   }}>
-                    {isSelectedCard ? 'Hide Calendar' : 'Take appointment'}
+                    Take appointment
                   </button>
-                  {selectedCard === index && (
+                  {state[index]?.isIcon && (
+                    <div className='icon' onClick={() => {
+                      setState({ ...state, [index]: { isOpen: !state[index]?.isOpen } });
+                    }}>
+                      <i className="fa fa-calendar"></i>
+                    </div>
+                  )}
+                  {state[index]?.isOpen && (
+
                     <DatePicker
+                      inline
+                      // showYearDropdown={false}
+                      // showMonthDropdown={false}
+
                       selected={selectedDate}
                       //onChange={date => setSelectedDate(date)}
                       onChange={handleDateChange}
-                    />
+                    >
+                    </DatePicker>
                   )}
                 </div>
               </div>
