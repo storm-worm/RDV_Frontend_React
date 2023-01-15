@@ -1,22 +1,34 @@
-import React, { useState } from "react"
-import { list } from "../../data/Data"
-//import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+// import { list } from "../../data/Data"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'font-awesome/css/font-awesome.min.css'
 
 
+
 const RecentCard = () => {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedCard, setSelectedCard] = useState(null);
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    localStorage.setItem('selectedDate', date);
+
+  const [res, setData] = useState([]);
+  const location = useLocation();
+
+  // const [showCalendar, setShowCalendar] = useState(false);
+  const [dates, setSelectedDate] = useState(new Date());
+  // const [selectedCard, setSelectedCard] = useState(null);
+
+
+const handleDateChange = (date, technicien_id) => {
+    const dateString = date.toISOString().slice(0, 10);
+    setSelectedDate(dateString);
+    localStorage.setItem('dates', dateString);
+    localStorage.setItem('technicien_id', technicien_id);
     window.location.href = '/select-hour';
   }
-  const [isOpen, setIsOpen] = useState(false);
-  const [isIcon, setIsIcon] = useState(false);
+
+  
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [isIcon, setIsIcon] = useState(false);
   const [state, setState] = useState({});
 
 
@@ -24,34 +36,53 @@ const RecentCard = () => {
 
 
 
-  return (
+  useEffect(() => {
+
+    if (location.state && location.state.data && location.state.data[0].data.length > 0) {
+      console.log("here is the data from the search")
+      console.log(location.state.data[0].data)
+      console.log("here is the end of ex data")
+      setData(location.state.data[0].data);
+      
+    }
+    
+    else {
+      
+        axios
+          .get("http://127.0.0.1:8000/api/technicien")
+          .then(res => {
+            setData(res.data[0].data);
+            console.log(res)
+          })
+          .catch(err => {
+            console.log(err);
+          });
+
+    }
+
+  }, [location.state]);
+
+
+  return ( 
     <>
-      <div className='content grid3 mtop'>
-        {list.map((val, index) => {
-          const { cover, location, name, price } = val
-          const isSelectedCard = index === selectedCard;
+       {location.state && location.state.data && location.state.data[0].data.length === 0 ? <p>There is no service with that name in this city</p> :
+       <div className='content grid3 mtop'>
+        {res.map((item, index) => {
           return (
-            <div className='box shadow' key={index}>
+            <div className='box shadow'>
               <div className='img'>
-                <img src={cover} alt='' />
+                <img src="../images/list/p-1.png" alt='' />
               </div>
               <div className='text'>
-                <h4>{name}</h4>
+                <h4>{item.service['service_lib']}  {item.user['nom']}</h4>
                 <p>
-                  <i className='fa fa-location-dot'></i> {location}
+                  <i className='fa fa-location-dot'></i> {item.succursale['succursale_lib']}
                 </p>
               </div>
               <div className='button flex'>
                 <div>
 
-                  {/* <Link to ={{pathname : '/datepickerpage', state: { startDate }
-                    }}>
-                  <button className='btn2'>{price} </button>
-                  </Link> */}
 
-                  {/* <button className='btn2' onClick={() => setShowCalendar(!showCalendar)}>
-                    {showCalendar ? 'Hide Calendar' : 'Take appointment'}
-                  </button> */}
                   <button className='btn2' onClick={() => {
                     setState({ ...state, [index]: { isIcon: !state[index]?.isIcon } });
                   }}>
@@ -71,20 +102,28 @@ const RecentCard = () => {
                       // showYearDropdown={false}
                       // showMonthDropdown={false}
 
-                      selected={selectedDate}
+                      selected={dates}
                       //onChange={date => setSelectedDate(date)}
-                      onChange={handleDateChange}
+                      onChange={(date) => handleDateChange(date, item.id)}
                     >
                     </DatePicker>
                   )}
+
+               
+               
+               
                 </div>
               </div>
             </div>
           )
-        })}
-      </div>
+        })}  
+      </div> 
+      }
     </>
   )
+
+      
 }
+
 
 export default RecentCard

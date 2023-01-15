@@ -12,46 +12,7 @@ import AppointmentConfirmation from "../home/recent/AppointmentConfirmation"
 
 
 const Pages = () => {
-  
-  // const {token} = AuthUser();
-  // console.log("token", token);
 
-//   if(!getToken()){
-//     return(
-//       <>
-//       <Router>
-//         <Header />
-//         <Routes>
-//           <Route exact path='/' element={<Home/>} />
-//           <Route exact path='/rdv' element={<Rdv/>} />
-//           <Route exact path='/contact' element={<Contact/>} />
-//           <Route exact path='/login' element={<Login/>} />
-//           <Route exact path='/register' element={<Register/>} />
-//         </Routes>
-//       </Router>
-//       </>
-      
-//     ) 
-    
-//   }
-//   else{
-//     return(
-//       <>
-//       <Router>
-//         <Header2 />
-//         <Routes>
-//         <Route exact path='/' element={<HomeUser/>} />
-//           <Route exact path='/rdv' element={<Rdv/>} />
-//           <Route exact path='/contact' element={<Contact/>} />
-//         </Routes>
-          // <Footer />
-//       </Router>
-//       </>
-
-//     )
-//   }
-
-// }
 
   return (
     <>
@@ -63,9 +24,11 @@ const Pages = () => {
           <Route exact path='/contact' element={<Contact/>} />
           <Route exact path='/login' element={<Login/>} />
           <Route exact path='/register' element={<Register/>} />
-          {/* <Route exact path='/' element={<HomeUser/>} /> */}
+          {/* <Route exact path='/homeuser' element={<HomeUser/>} /> */}
           <Route exact path='/select-hour' element={<HourSelection/>} />
           <Route exact path='/appointment-confirmation' element={<AppointmentConfirmation/>} />
+          {/* <Route exact path='/recentcard' element={<RecentCard/>} />
+          <Route exact path='/datepickerpage' element={<DatePickerPage/>} /> */}
         </Routes>
         <Footer />
       </Router>
@@ -74,3 +37,14 @@ const Pages = () => {
 }
 
 export default Pages
+
+
+
+
+
+
+
+
+
+
+

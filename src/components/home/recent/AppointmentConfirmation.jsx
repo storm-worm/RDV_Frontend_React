@@ -4,18 +4,19 @@ import Heading from '../../common/Heading';
 
 
 const AppointmentConfirmation = () => {
-    const selectedHour = localStorage.getItem("selectedHour");
-    const selectedDate = localStorage.getItem("selectedDate");
+  const dates= localStorage.getItem('dates');
+  const heures= localStorage.getItem('heures');
+  const message= localStorage.getItem('message');
 
   return (
     <section className='hero'>
         <div className='container'>
-          <Heading title='Appointment Confirmation' subtitle='You have selected your appointment date succesfully' />
+          <Heading title='Appointment Confirmation' subtitle={message} />
           <br></br>
           <br></br>
 
-          <p>Selected Hour: {selectedHour}</p>
-          <p>Selected Date: {selectedDate}</p>
+          <p>Selected Hour: {heures}</p>
+          <p>Selected Date: {dates}</p>
           </div>
       </section>
   );

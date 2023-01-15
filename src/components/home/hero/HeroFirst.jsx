@@ -1,10 +1,11 @@
-import React from "react"
 import Heading2 from "../../common/Heading2"
 import AuthUser from '../../auth/AuthUser'
 import "./hero.css"
+import React from "react";
 
 
 const Herofirst = () => {
+
 
   const {getUser, token,logout, http} = AuthUser();
   // const logoutUser = () => {
@@ -13,6 +14,7 @@ const Herofirst = () => {
   //     http.post('/logout')
   //   }
   // }
+
   return (
     <>
       <section className='hero'>
@@ -22,13 +24,14 @@ const Herofirst = () => {
           <form className='flex'>
             <div className='box'>
               <span>City</span>
-              <input type='text'  />
+              <input type="text" name="city" />
             </div>
             <div className='box'>
-              <span>Technicien</span>
-              <input type='text'  />
+              <span>Service</span>
+              <input type="text" name="service"/>
             </div>
-            <button className='btn1'>
+          
+            <button className='btn1' type="submit">
               <i className='fa fa-search'></i>
             </button>
           </form>
@@ -36,6 +39,6 @@ const Herofirst = () => {
       </section>
     </>
   )
-};
+}
 
 export default Herofirst
