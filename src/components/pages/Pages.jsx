@@ -7,6 +7,8 @@ import Rdv from "../rdv/Rdv"
 import Contact from "../contact/Contact"
 import Login from "../auth/login"
 import Register from "../auth/register"
+import HourSelection from "../home/recent/HourSelection"
+import AppointmentConfirmation from "../home/recent/AppointmentConfirmation"
 
 
 const Pages = () => {
@@ -62,6 +64,8 @@ const Pages = () => {
           <Route exact path='/login' element={<Login/>} />
           <Route exact path='/register' element={<Register/>} />
           {/* <Route exact path='/' element={<HomeUser/>} /> */}
+          <Route exact path='/select-hour' element={<HourSelection/>} />
+          <Route exact path='/appointment-confirmation' element={<AppointmentConfirmation/>} />
         </Routes>
         <Footer />
       </Router>
