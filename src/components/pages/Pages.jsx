@@ -17,6 +17,23 @@ import AppointmentConfirmation from '../home/recent/AppointmentConfirmation';
 
 const Pages = () => {
 
+  // const {getToken} = AuthUser();
+
+  // if(!getToken()){
+  //   return(
+  //     <>
+  //     <Router>
+  //       <Header />
+  //       <Routes>
+  //         <Route exact path='/login' element={<Login/>} />
+  //       </Routes>
+  //     </Router>
+  //     </>
+      
+  //   ) 
+    
+  // }
+
   return (
     <>
       <Router>
